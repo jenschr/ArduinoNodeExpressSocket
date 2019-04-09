@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forautomat</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Forautomat</h1>
+        <h4><span id="textFromArduino">x</span></h4>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://localhost:3003'); //connect to server
+            socket.on('eventdata', function(data) { //As a temp data is received 
+                console.log(data.text);
+                document.getElementById('textFromArduino').innerHTML = data.text; //update the date
+            });
+        </script>
+    </body>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+        }
+
+        h4 {
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+        }
+
+        p {
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
+</html>
